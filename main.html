@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>пользователь</title>
+    <link rel="shortcut icon" href="https://privatcredit.com.ua/wp-content/uploads/2018/05/installments-car.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <meta charset="utf-8">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="background.css" rel="stylesheet">
+    <script src="admin.js"></script>
+
+</head>
+
+<body ng-app="Abonent"><br>
+<table width="100%">
+    <tr>
+        <td> &nbsp &nbsp &nbsp
+            <input value="Перейти к списку абонентов" type="submit" onclick="return location.href = 'user.html'">
+        </td>
+        <td align="right">
+            <!-- Небольшой модальное окно -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Войти </button> &nbsp &nbsp &nbsp
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Админпанель</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name">Логин: </label>
+                                    <input type="text" class="form-control" id="id_1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" >Пароль: </label>
+                                    <input type="password" class="form-control" id="id_2">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                            <button type="button" class="btn btn-primary" onclick="user()">Войти</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <input value="Войти" type="submit" onclick="admin()">&nbsp &nbsp &nbsp -->
+        </td>
+    </tr>
+</table>
+<script>
+    function user(){
+        var login = document.getElementById("id_1").value;
+        var pass = document.getElementById("id_2").value;
+
+        if(login == "admin"){
+            if(pass == "admin"){
+                location.href = 'index.html';
+            }else {
+                alert("Неверный пароль!");
+            }
+        } else {
+            alert("Неверный логин!");
+        }
+    }
+</script>
+
+<div class="container" ng-controller="AbonentController">
+    <div class="bg-faded p-4 my-4">
+
+
+        <!-- First Container -->
+        <div class="container-fluid bg-1 text-center">
+            <h3 class="margin">Добро пожаловать на наш сайт</h3> <br>
+            <img src="https://avatanplus.com/files/resources/original/5834770fc9ba51588cf115d2.png" style="display:inline"
+                 alt="Abonent" width="350"> <br> <br>
+            <h3>Мы представляем уникальный список автомобилей</h3>
+        </div>
+
+        <!-- Second Container -->
+        <div class="container-fluid bg-2 text-center">
+            <h3 class="margin">Хотите узнать подробнее о нашей компании?</h3>
+            <p>Вы можете связаться с нами написав на нашу электронную почту </p> <br>
+            <a href="mailto:yaroshevsky@gmail.com" target="_blank" class="btn btn-default btn-lg">
+                <i class="fa fa-google-plus"></i> Напишите нам
+            </a> <br> <br>
+        </div>
+
+        <!-- Third Container (Grid) -->
+        <div class="container-fluid bg-3 text-center">
+            <h3 class="margin">Какие автомобили есть у нас?</h3><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>У нас есть "семейные" автомобили.</p>
+                    <img src="https://fastmb.ru/uploads/posts/2016-10/1477642682_1.jpg" class="img-responsive margin"
+                         style="width:100%" alt="Image">
+                </div>
+                <div class="col-sm-4">
+                    <p>Так же есть грузовые автомобили.</p>
+                    <img src="http://www.naveco-motors.ru/upload/naveco-c500/naveco-c500-furgon.jpg" class="img-responsive margin"
+                         style="width:100%" alt="Image">
+                </div>
+                <div class="col-sm-4">
+                    <p>И как же без гоночных автомобилей.</p>
+                    <img src="https://otvet.imgsmail.ru/download/8f8d522a7ce584bd664da510f9bbec65_i-512.jpg" class="img-responsive margin"
+                         style="width:100%" alt="Image">
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <p align="center">
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+               aria-controls="collapseExample">
+                Просмотреть список абонентов
+            </a>
+
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+
+
+
+                <div class="row pt-4">
+                    <div class="col-lg-12 table">
+                        <table class="table-hover" width="100%">
+                            <thead>
+                            <tr class="row">
+                                <td width="33%" align="center" style="font-family: MyWebFont3">Фамилия</td>
+                                <td width="33%" align="center" style="font-family: MyWebFont3">Имя</td>
+                                <td width="33%" align="center" style="font-family: MyWebFont3">Номер</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="obj in abonent | filter:searchText" class="row">
+                                <td width="33%" align="center" ng-click="redirect(obj.id)">{{obj.lastname}}</td>
+                                <td width="33%" align="center" ng-click="redirect(obj.id)">{{obj.firstname}}</td>
+                                <td width="33%" align="center" ng-click="redirect(obj.id)">{{obj.phone}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <div align="center">
+                            <a href="user.html">Просмотреть более подробный список</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <!-- Footer -->
+        <footer class="container-fluid bg-4 text-center">
+            <p>Сайт для оператора мобильной связи <a href="https://www.bsuir.by/">БГУИР 2020</a></p>
+        </footer>
+    </div>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB113E0I4acn3ZALp8H9ggaG61l8hVDPQs",
+        authDomain: "database-525b7.firebaseapp.com",
+        databaseURL: "https://database-525b7.firebaseio.com",
+        projectId: "database-525b7",
+        storageBucket: "database-525b7.appspot.com",
+        messagingSenderId: "688730230610",
+        appId: "1:688730230610:web:ded09e178d97fd3569348b",
+        measurementId: "G-MS3JK4911R"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+<!--<script src="../auto/auto.js"></script>-->
+<script src="../user/admin.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+

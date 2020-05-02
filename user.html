@@ -12,7 +12,7 @@
 
     <!-- Custom styles for this template -->
     <link href="background.css" rel="stylesheet">
-
+    <script src="admin.js"></script>
 </head>
 
 <body ng-app="Abonent"><br>
@@ -22,8 +22,39 @@
             <td> &nbsp &nbsp &nbsp 
                 <input value="Главная" type="submit" onclick="return location.href = 'main.html'">
             </td>
-            <td align="right"> 
-                <input value="Войти" type="submit" onclick="return location.href = 'index.html'">&nbsp &nbsp &nbsp
+            <td align="right">
+                <!-- Небольшой модальное окно -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Войти </button> &nbsp &nbsp &nbsp
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Админпанель</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name">Логин: </label>
+                                        <input type="text" class="form-control" id="id_1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" >Пароль: </label>
+                                        <input type="password" class="form-control" id="id_2">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                <button type="button" class="btn btn-primary" onclick="user()">Войти</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <input value="Войти" type="submit" onclick="admin()">&nbsp &nbsp &nbsp -->
             </td>
             </tr>
         </table>
