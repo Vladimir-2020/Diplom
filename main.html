@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="background.css" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 </head>
 
-<body ng-app="Abonent"><br>
+<body ng-app="Abonent" ng-mouseleave="" ng-mouseenter=""><br>
 <table width="100%">
     <tr>
         <td> &nbsp &nbsp &nbsp
@@ -24,9 +24,13 @@
         </td>
         <td align="right">
             <!-- Небольшой модальное окно -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Войти </button> &nbsp &nbsp &nbsp
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@mdo">Войти
+            </button>
+            &nbsp &nbsp &nbsp
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -42,7 +46,7 @@
                                     <input type="text" class="form-control" id="id_1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" >Пароль: </label>
+                                    <label for="recipient-name">Пароль: </label>
                                     <input type="password" class="form-control" id="id_2">
                                 </div>
                             </form>
@@ -59,14 +63,14 @@
     </tr>
 </table>
 <script>
-    function user(){
+    function user() {
         var login = document.getElementById("id_1").value;
         var pass = document.getElementById("id_2").value;
 
-        if(login == "admin"){
-            if(pass == "admin"){
+        if (login == "admin") {
+            if (pass == "admin") {
                 location.href = 'index.html';
-            }else {
+            } else {
                 alert("Неверный пароль!");
             }
         } else {
@@ -82,7 +86,8 @@
         <!-- First Container -->
         <div class="container-fluid bg-1 text-center">
             <h3 class="margin">Добро пожаловать на наш сайт</h3> <br>
-            <img src="https://avatanplus.com/files/resources/original/5834770fc9ba51588cf115d2.png" style="display:inline"
+            <img src="https://avatanplus.com/files/resources/original/5834770fc9ba51588cf115d2.png"
+                 style="display:inline"
                  alt="Abonent" width="350"> <br> <br>
             <h3>Мы представляем уникальный список автомобилей</h3>
         </div>
@@ -107,12 +112,14 @@
                 </div>
                 <div class="col-sm-4">
                     <p>Так же есть грузовые автомобили.</p>
-                    <img src="http://www.naveco-motors.ru/upload/naveco-c500/naveco-c500-furgon.jpg" class="img-responsive margin"
+                    <img src="http://www.naveco-motors.ru/upload/naveco-c500/naveco-c500-furgon.jpg"
+                         class="img-responsive margin"
                          style="width:100%" alt="Image">
                 </div>
                 <div class="col-sm-4">
                     <p>И как же без гоночных автомобилей.</p>
-                    <img src="https://otvet.imgsmail.ru/download/8f8d522a7ce584bd664da510f9bbec65_i-512.jpg" class="img-responsive margin"
+                    <img src="https://otvet.imgsmail.ru/download/8f8d522a7ce584bd664da510f9bbec65_i-512.jpg"
+                         class="img-responsive margin"
                          style="width:100%" alt="Image">
                 </div>
             </div>
@@ -121,15 +128,15 @@
 
 
         <p align="center">
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-               aria-controls="collapseExample">
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+               aria-expanded="false"
+               aria-controls="collapseExample" ng-click="">
                 Просмотреть список абонентов
             </a>
 
         </p>
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
-
 
 
                 <div class="row pt-4">
@@ -193,13 +200,17 @@
 </script>
 
 <!--<script src="../auto/auto.js"></script>-->
-<script src="../user/admin.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<script src="admin.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
+<script src="abonent.js"></script>
 </body>
 
 </html>
