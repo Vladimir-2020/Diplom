@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Мой диплом ♥</title>
+    <title>Работа с данными</title>
     <link rel="shortcut icon" href="https://privatcredit.com.ua/wp-content/uploads/2018/05/installments-car.png">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <meta charset="utf-8">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="background.css" rel="stylesheet">
@@ -17,122 +17,142 @@
 
 <body ng-app="Abonent" ng-mouseleave="" ng-mouseenter=""><br>
 
-    <table width="100%">
-            <tr>
-            <td> &nbsp &nbsp &nbsp 
-                <input value="Главная" type="submit" onclick="return location.href = 'main.html'">
-            </td>
-            <td align="right"> 
-                <input value="Выйти" type="submit" onclick="return location.href = 'user.html'">&nbsp &nbsp &nbsp
-            </td>
-            </tr>
-        </table>
+<table width="100%">
+    <tr>
+        <td> &nbsp &nbsp &nbsp
+            <input value="Главная" type="submit" onclick="return location.href = 'main.html'">
+        </td>
+        <td align="right">
+            <input value="Выйти" type="submit" onclick="return location.href = 'user.html'">&nbsp &nbsp &nbsp
+        </td>
+    </tr>
+</table>
 
-    <div align="right"> <br>
-        &nbsp &nbsp &nbsp
-    </div>
+<div align="right"><br>
+    &nbsp &nbsp &nbsp
+</div>
 
-    <div class="container" ng-controller="AbonentController">
-        <div class="bg-faded p-4 my-4">
-            <h5 class="row card-header mb-0">
-                <!-- <img src="../img/06magnify.png" width="30px" height="30px"> -->
-                <input ng-model="searchText" class="inp col-10 offset-1 form-control " aria-describedby="emailHelp"
-                    placeholder="Поиск">
-            </h5>
+<div class="container" ng-controller="AbonentController">
+    <div class="bg-faded p-4 my-4">
+        <h5 class="row card-header mb-0">
+            <!-- <img src="../img/06magnify.png" width="30px" height="30px"> -->
+            <input ng-model="searchText" class="inp col-10 offset-1 form-control " aria-describedby="emailHelp"
+                   placeholder="Поиск">
+        </h5>
 
-            <div id="collapseOne" >
-                <div class="card-body">
-                    <form>
-                        <div class="form-group"  >
-                            <input type="text" id = "id_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="ID - Обязательно заполнять при редактировании" ng-model="id" ng-click="redirect(obj.id)"
-                                required pattern="^[0-9]+$" ></input>
-                            <input type="text" id = "lastname_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Фамилия" ng-model="lastname"
-                                required></input>
-                            <input type="text" id = "firstname_"  class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Имя" ng-model="firstname"
-                                required></input>
-                            <input type="text"  id = "street_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Улица" ng-model="street"
-                                required></input>
-                            <input type="text"  id = "building_"  class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Дом" ng-model="building"
-                                required pattern="^[0-9]+$" ></input>
-                            <input type="text"  id = "flat_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Квартира" ng-model="flat"
-                                required pattern="^[0-9]+$" ></input>
-                            <input type="text"  id = "phone_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Телефон" ng-model="phone"
-                                required pattern="^[0-9]+$"></input>
-                            <input type="text"  id = "tarif_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
-                                placeholder="Тариф" ng-model="tarif"
-                                required></input>
+        <div id="collapseOne">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <div class="secret-id">
+                            <input type="text" id="id_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
+                                   placeholder="ID - Обязательно заполнять при редактировании" ng-model="id"
+                                   ng-click="redirect(obj.id)"
+                                   required pattern="^[0-9]+$"></input>
                         </div>
-                        <div>
-                            <button class="col-10 offset-1 form-control" type="submit" class="btn btn-primary" ng-click="addAbonent()"
+                        <input type="text" id="lastname_" class="col-10 offset-1 form-control"
+                               aria-describedby="emailHelp"
+                               placeholder="Фамилия" ng-model="lastname"
+                               required></input>
+                        <input type="text" id="firstname_" class="col-10 offset-1 form-control"
+                               aria-describedby="emailHelp"
+                               placeholder="Имя" ng-model="firstname"
+                               required></input>
+                        <input type="text" id="street_" class="col-10 offset-1 form-control"
+                               aria-describedby="emailHelp"
+                               placeholder="Улица" ng-model="street"
+                               required></input>
+                        <input type="text" id="building_" class="col-10 offset-1 form-control"
+                               aria-describedby="emailHelp"
+                               placeholder="Дом" ng-model="building"
+                               required pattern="^[0-9]+$"></input>
+                        <input type="text" id="flat_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
+                               placeholder="Квартира" ng-model="flat"
+                               required pattern="^[0-9]+$"></input>
+                        <input type="text" id="phone_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
+                               placeholder="Телефон" ng-model="phone"
+                               required pattern="^[0-9]+$"></input>
+                        <input type="text" id="tarif_" class="col-10 offset-1 form-control" aria-describedby="emailHelp"
+                               placeholder="Тариф" ng-model="tarif"
+                               required></input>
+                    </div>
+                    <div>
+                        <button class="col-10 offset-1 form-control" type="submit" class="btn btn-primary"
+                                ng-click="addAbonent()"
                                 ng-hide="addHide" type="submit">
-                                Добавить
-                            </button>
-                            <button class="col-10 offset-1 form-control" type="submit" class="btn btn-primary" ng-click="updateAbonent()"
+                            Добавить
+                        </button>
+                        <button class="col-10 offset-1 form-control" type="submit" class="btn btn-primary"
+                                ng-click="updateAbonent()"
                                 ng-hide="updateHide" type="submit">
-                                Обновить
-                            </button>
-                            <div id="validator_filled" style="color: red; margin-top: 10px; margin-left: 84px;">
-                                Заполните все поля</div>
-                            <div id="validator_correct" style="color: red; margin-top: 10px; margin-left: 84px;">
-                                Заполните все поля корректно</div>
+                            Обновить
+                        </button>
+                        <div id="validator_filled" style="color: red; margin-top: 10px; margin-left: 84px;">
+                            Заполните все поля
                         </div>
-                    </form>
-                </div>
+                        <div id="validator_correct" style="color: red; margin-top: 10px; margin-left: 84px;">
+                            Заполните все поля корректно
+                        </div>
+                    </div>
+                </form>
             </div>
-
-            <div class="row pt-4">
-                <div class="col-lg-12 table">
-                    <table class="table-hover" width="100%">
-                        <thead>
-                            <tr class="row">
-                                <td width="5%" align="center" style="font-family: MyWebFont3">ID</td>
-                                <td width="10%" align="center" style="font-family: MyWebFont3">Фамилия</td>
-                                <td width="10%" align="center" style="font-family: MyWebFont3">Имя</td>
-                                <td width="10%" align="center" style="font-family: MyWebFont3">Улица</td>
-                                <td width="15%" align="center" style="font-family: MyWebFont3">Дом</td>
-                                <td width="15%" align="center" style="font-family: MyWebFont3">Квартира</td>
-                                <td width="10%" align="center" style="font-family: MyWebFont3">Телефон</td>
-                                <td width="10%" align="center" style="font-family: MyWebFont3">Тариф</td>
-                                <td width="15%" align="center" role="tab">
-                                    <button id="addButton" 
-                                        ng-click="hideButton(1)" />
-
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="obj in abonent | filter:searchText" class="row">
-                                <td width="5%" align="center" ng-click="redirect(obj.id)">{{obj.id}}</td>
-                                <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.lastname}}</td>
-                                <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.firstname}}</td>
-                                <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.street}}</td>
-                                <td width="15%" align="center" ng-click="redirect(obj.id)">{{obj.building}}</td>
-                                <td width="15%" align="center" ng-click="redirect(obj.id)">{{obj.flat}}</td>
-                                <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.phone}}</td>
-                                <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.tarif}}</td>
-                                <td width="15%" align="center" style="padding-left: 17px;">
-                                    <button ng-click="deleteAbonent(obj.id)">Удалить</button>
-                                    <button id="updateButton" 
-                                         ng-click="reWriteUpd(obj.id, obj.lastname,obj.firstname,obj.street,obj.building,obj.flat,obj.phone,obj.tarif)"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <hr>
-            <!-- Footer -->
-            <footer class="container-fluid bg-4 text-center">
-                <p>Сайт для оператора мобильной связи  <a href="https://www.bsuir.by/">БГУИР 2020</a></p>
-            </footer>
         </div>
+
+        <div class="row pt-4">
+            <div class="col-lg-12 table">
+                <table class="table-hover" width="100%">
+                    <thead>
+                    <tr class="row">
+                        <td width="5%" align="center" style="font-family: MyWebFont3">
+                            <p class="secret-id">
+                                ID
+                            </p>
+                        </td>
+                        <td width="10%" align="center" style="font-family: MyWebFont3">Фамилия</td>
+                        <td width="10%" align="center" style="font-family: MyWebFont3">Имя</td>
+                        <td width="10%" align="center" style="font-family: MyWebFont3">Улица</td>
+                        <td width="15%" align="center" style="font-family: MyWebFont3">Дом</td>
+                        <td width="15%" align="center" style="font-family: MyWebFont3">Квартира</td>
+                        <td width="10%" align="center" style="font-family: MyWebFont3">Телефон</td>
+                        <td width="10%" align="center" style="font-family: MyWebFont3">Тариф</td>
+                        <td width="15%" align="center" role="tab">
+                            <!--<button id="addButton"
+                                ng-click="hideButton(1)" />-->
+
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="obj in abonent | filter:searchText" class="row">
+                        <td width="5%" align="center" ng-click="redirect(obj.id)">
+                            <p class="secret-id">
+                                {{obj.id}}
+                            </p>
+                        </td>
+                        <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.lastname}}</td>
+                        <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.firstname}}</td>
+                        <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.street}}</td>
+                        <td width="15%" align="center" ng-click="redirect(obj.id)">{{obj.building}}</td>
+                        <td width="15%" align="center" ng-click="redirect(obj.id)">{{obj.flat}}</td>
+                        <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.phone}}</td>
+                        <td width="10%" align="center" ng-click="redirect(obj.id)">{{obj.tarif}}</td>
+                        <td width="15%" align="center" style="padding-left: 17px;">
+                            <button ng-click="deleteAbonent(obj.id)">Удалить</button>
+                            <button id="updateButton"
+                                    ng-click="reWriteUpd(obj.id, obj.lastname,obj.firstname,obj.street,obj.building,obj.flat,obj.phone,obj.tarif)"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <!-- Footer -->
+        <footer class="container-fluid bg-4 text-center">
+            <p>Сайт для оператора мобильной связи <a href="https://www.bsuir.by/">БГУИР 2020</a></p>
+        </footer>
     </div>
+</div>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
@@ -157,16 +177,19 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    </script>
+</script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
-    <script src="abonent.js"></script>
+<script src="abonent.js"></script>
 </body>
 
 </html>

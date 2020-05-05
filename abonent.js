@@ -1,51 +1,57 @@
 let bool1 = true; //2 переменные (флага)
 let bool2 = true;
+let arrayData = [];
 
-let abonent = angular.module('Abonent', []);//в хтмл есть элемент сверху с подписью 'Car' - эту часть и будет рисовать ангуляр
+let abonent = angular.module('Abonent', []);
 
-/*** контроллер car , который работает с 'AutoController' и получает анонимную функцию       **/
-abonent.controller('AbonentController', function($scope, $http, $window) {
+
+abonent.controller('AbonentController', function ($scope, $http, $window) {
     $('#validator_filled').hide();//скрывает элемент с id="validator_filled"
     $('#validator_correct').hide();//скрывает элемент с id="validator_correct"
     $('#collapseOne').show();
 
 
-    function read() {
-        let arrayData = [];
+    firebase.database().ref().orderByValue().on('value', snapshot => {
+        // arrayData = [];
+        const keyArr = Object.keys(snapshot.val());
+        let obj = snapshot.val()
+        let strJSON = JSON.stringify(obj)
+        for (keyData of keyArr) {
+            keyData += "";
 
-        firebase.database().ref().orderByValue().on('value', snapshot => {
+            let oneAbonentInfo;
 
-            const keyArr = Object.keys(snapshot.val());
-            let obj = snapshot.val()
-            let strJSON = JSON.stringify(obj)
+            JSON.parse(strJSON, (key, value) => {
+
+                if (key == keyData) {
+                    value.id = key
+                    // console.log(value)
+                    return oneAbonentInfo = value;
+                }
+                return value
+            });
+            console.log("Данные из бд");
+            console.log(oneAbonentInfo);
+
+            arrayData.unshift(oneAbonentInfo);
+        }
+
+        console.log("Данные из бд закончились");
+        read();
+
+        return null;
+
+    })
 
 
-            for (keyData of keyArr) {
-                keyData += "";
+    function read() { //короче read() вызывается только когда данные изменяются в бд, вроде норм так
+        $http.put(`http://localhost`, JSON.stringify({}));
+        //пустой запрос в никуда, когда данные из ФБ получены
 
-                let result;
-
-                let value = JSON.parse(strJSON, (key, value) => {
-
-                    if (key == keyData) {
-                        value.id = key
-                        // console.log(value)
-                        return result = value;
-                    }
-                    return value
-                });
-
-                arrayData.unshift(result);
-                console.log(result);
-            }
-            return null;
-        })
-
+        console.log(arrayData);
         $scope.abonent = arrayData;
-
+        arrayData = [];
     }
-
-    read()
 
 
     $scope.addAbonent = function () {
@@ -65,16 +71,14 @@ abonent.controller('AbonentController', function($scope, $http, $window) {
         }
 
         write(data)
-        read()
     }
 
-
     $scope.reWriteUpd = function (id, lastname, firstname, street, building, flat, phone, tarif) {
-        //флаги для показа одной кнопки и прятанья 2-ой (35строка схожа)
+
         if (bool2) {
             $('#collapseOne').show();
             $('#id_').show();
-            $scope.addHide = true;
+            $scope.addHide = false;
             $scope.updateHide = false;
             bool2 = false;
             bool1 = true;
@@ -99,8 +103,7 @@ abonent.controller('AbonentController', function($scope, $http, $window) {
         console.log(lastname + " _ " + firstname + " _ " + street + " _ " + building + " _ " + flat + " _ " + phone + " _ " + tarif);
 
     }
-
-
+    
     $scope.updateAbonent = function () {
         let myKey = $("#id_").val()
 
@@ -114,17 +117,10 @@ abonent.controller('AbonentController', function($scope, $http, $window) {
             tarif: $("#tarif_").val(),
         };
 
-
         firebase.database().ref().child(myKey).set(newAbonent);
-        read();
     }
 
-
-    $scope.deleteAbonent = function(id){
+    $scope.deleteAbonent = function (id) {
         firebase.database().ref().child(id).remove();
-        read();
     }
-
-
 })
-

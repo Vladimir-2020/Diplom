@@ -3,7 +3,7 @@
 
 font-family: 'MyWebFont';
 
-src: url('fonts/droid-serif/DroidSerif-Regular.ttf') format('truetype');
+/*src: url('fonts/droid-serif/DroidSerif-Regular.ttf') format('truetype');*/
 
 }
 
@@ -11,7 +11,7 @@ src: url('fonts/droid-serif/DroidSerif-Regular.ttf') format('truetype');
 
 font-family: 'MyWebFont2';
 
-src: url('fonts/droid-serif/DroidSerif-Bold.ttf') format('truetype');
+/*src: url('fonts/droid-serif/DroidSerif-Bold.ttf') format('truetype');*/
 
 }
 
@@ -19,7 +19,7 @@ src: url('fonts/droid-serif/DroidSerif-Bold.ttf') format('truetype');
 
 font-family: 'MyWebFont3';
 
-src: url('fonts/droid-serif/DroidSerif-Italic.ttf') format('truetype');
+/*src: url('fonts/droid-serif/DroidSerif-Italic.ttf') format('truetype');*/
 
 }
 
@@ -191,5 +191,9 @@ fieldset[disabled] .btn-default:hover {
 .btn-default .badge {
   color: #fff;
   background-color: #333
+}
+
+.secret-id{
+  display: none;
 }
 
